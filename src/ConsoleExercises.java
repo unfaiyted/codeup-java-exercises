@@ -85,7 +85,6 @@ public class ConsoleExercises {
 
     }
 
-
     public static Float area(Float length, Float width) {
 
        Float area = length*width;
