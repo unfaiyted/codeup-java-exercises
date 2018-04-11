@@ -1,8 +1,11 @@
 import java.util.Scanner;
+import java.lang.Math;
 
 public class MethodsExercises {
 
     public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
 
         System.out.println("Add: 3 + 4 = " + addition(3,4));
 
@@ -20,11 +23,21 @@ public class MethodsExercises {
 
 
 
+        //Factorial
         int userInput = getInteger(1, 16);
 
         System.out.println("Valid input: " + userInput);
 
         getFactorial(userInput);
+
+
+        System.out.println("Sides on the dice?  ");
+        userInput = sc.nextInt();
+
+        // Dice Simulation 2018 : 2nd Edition UnLEASHED.
+        int diceTotal = getDice(userInput);
+
+        System.out.println("Final rolls total: " + diceTotal);
 
     }
 
@@ -88,6 +101,38 @@ public class MethodsExercises {
 
         return (long) total;
     }
+
+
+
+    public static int roll(int max) {
+        return (int)(Math.random() * max) + 1;
+    }
+
+    public static int getDice(int sides) {
+        Scanner sc = new Scanner(System.in);
+        String input;
+        int total;
+
+        do {
+
+            System.out.print("Roll 2 "+ sides +"-sides dice? ");
+            input = sc.nextLine();
+
+           int dice1 = roll(sides);
+           int dice2 = roll(sides);
+
+            System.out.print("Dice #1: "+ dice1 +"\n" +
+                    "Dice #2: " + dice2 + "\n");
+            total = dice1+dice2;
+
+            System.out.print("Type exit to stop rolling. Or press enter: ");
+            input = sc.nextLine();
+
+        } while(!input.contains("exit"));
+
+        return total;
+    }
+
 
 
 }
