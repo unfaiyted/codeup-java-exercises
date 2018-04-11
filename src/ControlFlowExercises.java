@@ -25,6 +25,10 @@ public class ControlFlowExercises {
 //
 //        }
 
+        for(int i = 5; i<= 15; i++) {
+            System.out.print(i + " ");
+        }
+
 //        Do While
 //
 //        Create a do-while loop that will count by 2's starting with 0 and ending at 100. Follow each number with a new line.
@@ -37,15 +41,26 @@ public class ControlFlowExercises {
 //        256
 //        65536
 
-        double number = 2;
+//        double number = 2;
+//
+//        do {
+//            int output = (int) number;
+//            System.out.println(output);
+//            number = number * number;
+//
+//        }
+//        while (number < 1000000);
 
-        do {
+
+
+        for(double number = 2; number < 1000000; number *= number) {
+
             int output = (int) number;
             System.out.println(output);
-            number = number * number;
 
         }
-        while (number < 1000000);
+
+
 
 
     }
