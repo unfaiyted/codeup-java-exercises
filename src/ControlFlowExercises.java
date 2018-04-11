@@ -35,16 +35,15 @@ public class ControlFlowExercises {
 //        256
 //        65536
 
-        int number = 2;
+        int number = 100;
 
         do {
 
             System.out.println(number);
-            number = number+2;
+            number = number-5;
 
         }
-        while (number <= 100);
-
+        while (number >= -10);
 
 
     }
