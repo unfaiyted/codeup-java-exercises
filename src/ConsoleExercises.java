@@ -16,18 +16,18 @@ public class ConsoleExercises {
         //What happens if you input something that is not an integer?
         // an error in console. crash
 
-        String inputString1; String inputString2; String inputString3;
+        String inputString1;
+        String inputString2;
+        String inputString3;
 
         System.out.print("Enter a word (1): ");
-        inputString1 = sc.next();
+        inputString1 = sc.nextLine();
 
         System.out.print("Enter a word (2): ");
-        inputString2 = sc.next();
+        inputString2 = sc.nextLine();
 
         System.out.print("Enter a word (3): ");
-        inputString3 = sc.next();
-
-
+        inputString3 = sc.nextLine();
 
         System.out.print(inputString1 + "\n" +
                 inputString2 + "\n" +
@@ -59,7 +59,48 @@ public class ConsoleExercises {
         *
         * */
 
+        String roomString;
+
+
+        System.out.print("Enter room size (length x width x height): ");
+        roomString = sc.nextLine();
+
+        String[] dimension = roomString.split("x");
+
+        Float length = Float.parseFloat(dimension[0]);
+        Float width = Float.parseFloat(dimension[1]);
+        // Float height = Float.parseFloat(dimension[2]);
+
+
+        System.out.print("area = " + area(length, width) + "\n" +
+                "perimeter = " + perimeter(length, width) + "\n");
+
+
+
+        if (dimension[2] != null) {
+            Float height = Float.parseFloat(dimension[2]);
+            System.out.print("volume = " + volume(length, width, height) + "\n");
+        }
 
 
     }
+
+
+    public static Float area(Float length, Float width) {
+
+       Float area = length*width;
+        return area;
+    }
+
+    public static Float perimeter(Float length, Float width) {
+        Float perimeter = (2*length)+ (2*width);
+        return perimeter;
+    }
+
+    public static Float volume(Float length, Float width, Float height) {
+        Float volume = length*width*height;
+        return volume;
+    }
+
+
 }
