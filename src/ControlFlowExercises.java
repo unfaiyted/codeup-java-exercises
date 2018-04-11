@@ -1,3 +1,5 @@
+import java.math.BigInteger;
+
 public class ControlFlowExercises {
 
     public static void main(String[] args) {
@@ -35,15 +37,15 @@ public class ControlFlowExercises {
 //        256
 //        65536
 
-        int number = 100;
+        double number = 2;
 
         do {
-
-            System.out.println(number);
-            number = number-5;
+            int output = (int) number;
+            System.out.println(output);
+            number = number * number;
 
         }
-        while (number >= -10);
+        while (number < 1000000);
 
 
     }
