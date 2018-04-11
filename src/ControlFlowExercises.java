@@ -1,4 +1,5 @@
 import java.math.BigInteger;
+import java.util.Scanner;
 
 public class ControlFlowExercises {
 
@@ -73,24 +74,57 @@ public class ControlFlowExercises {
 //        For numbers which are multiples of both three and five print “FizzBuzz”.
 
 
-        for(int i = 1; i <= 100; i++) {
+//        for(int i = 1; i <= 100; i++) {
+//
+//            //System.out.print(i);
+//
+//            String returnVal = "";
+//
+//
+//           returnVal =  (i%5 != 0 && i%3 != 0) ? String.valueOf(i) : returnVal;
+//            returnVal = (i%3 == 0) ? "Fizz" : returnVal;
+//            returnVal = (i%5 == 0) ?  returnVal + "Buzz" : returnVal;
+//
+//
+//            System.out.println(returnVal);
+//
+//        }
+//
+//        Display a table of powers.
+//
+//                Prompt the user to enter an integer.
+//        Display a table of squares and cubes from 1 to the value entered.
+//        Ask if the user wants to continue.
+//        Assume that the user will enter valid data.
+//        Only continue if the user agrees to.
 
-            //System.out.print(i);
-
-            String returnVal = "";
-
-
-           returnVal =  (i%5 != 0 && i%3 != 0) ? String.valueOf(i) : returnVal;
-            returnVal = (i%3 == 0) ? "Fizz" : returnVal;
-            returnVal = (i%5 == 0) ?  returnVal + "Buzz" : returnVal;
+        Scanner sc = new Scanner(System.in);
+        int userInt;
 
 
-            System.out.println(returnVal);
+        System.out.print("What number would you like to stop at: ");
+        userInt = sc.nextInt();
 
+
+        System.out.print("Here is your data table\n");
+
+        System.out.print("number | squared | cubed \n"+
+        "=========================\n");
+
+        for(int i = 1 ; i <= userInt; i++) {
+            System.out.print(String.valueOf(i) + "      | " + squared(i) + "      | " + cubed(i) + "\n" );
         }
 
 
     }
 
+    public static int squared(int number) {
+        return number*number;
+    }
+
+    public static int cubed(int number) {
+        return number*number*number;
+
+    }
 
 }
