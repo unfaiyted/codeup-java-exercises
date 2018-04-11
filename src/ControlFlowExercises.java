@@ -98,24 +98,111 @@ public class ControlFlowExercises {
 //        Assume that the user will enter valid data.
 //        Only continue if the user agrees to.
 
+//        Scanner sc = new Scanner(System.in);
+//        int userInt;
+//
+//
+//        System.out.print("What number would you like to stop at: ");
+//        userInt = sc.nextInt();
+//
+//
+//        System.out.print("Here is your data table\n");
+//
+//        System.out.print("number | squared | cubed \n"+
+//        "=========================\n");
+//
+//        for(int i = 1 ; i <= userInt; i++) {
+//            System.out.print(String.valueOf(i) + "      | " + squared(i) + "      | " + cubed(i) + "\n" );
+//        }
+
+
+//        Convert given number grades into letter grades.
+//
+//                Prompt the user for a numerical grade from 0 to 100.
+//        Display the corresponding letter grade.
+//                Prompt the user to continue.
+//        Assume that the user will enter valid integers for the grades.
+//        The application should only continue if the user agrees to.
+//        Grade Ranges:
+//
+//        A : 100 - 88
+//        B : 87 - 80
+//        C : 79 - 67
+//        D : 66 - 60
+//        F : 59 - 0
+//        Bonus
+//
+//        Edit your grade ranges to include pluses and minuses (ex: 99-100 = A+).
+
         Scanner sc = new Scanner(System.in);
         int userInt;
+        String userContinue;
+
+        boolean continueOn = true;
+
+        do {
+
+            System.out.print("Enter grade: ");
+            userInt = sc.nextInt();
+
+            System.out.print( gradeToString(userInt) + "\n");
+
+            System.out.print("Type Y or y to continue: ");
+            userContinue = sc.next();
+
+            if(!userContinue.contains("y") && !userContinue.contains("Y")) {
+                continueOn = false;
+            }
+
+        } while (continueOn);
+
+    }
+
+    private static String gradeToString(int number) {
+
+       String grade = (number >= 100) ? "A+": "F";
+
+        if (number >= 50 && number < 100) {
+
+            String numberString = Integer.toString(number);
+
+            switch (Character.getNumericValue(numberString.charAt(0))) {
+                case 5:
+                    grade = "F";
+                    break;
+                case 6:
+                    grade = "D";
+                    break;
+                case 7:
+                    grade = "C";
+                    break;
+                case 8:
+                    grade = "B";
+                    break;
+                case 9:
+                    grade = "A";
+                    break;
+
+            }
 
 
-        System.out.print("What number would you like to stop at: ");
-        userInt = sc.nextInt();
+            switch (Character.getNumericValue(numberString.charAt(1))) {
+                case 0: case 1: case 2: case 3:
+                    grade += "-";
+                    break;
+                case 7: case 8: case 9:
+                    grade += "+";
+                    break;
 
 
-        System.out.print("Here is your data table\n");
+            }
 
-        System.out.print("number | squared | cubed \n"+
-        "=========================\n");
 
-        for(int i = 1 ; i <= userInt; i++) {
-            System.out.print(String.valueOf(i) + "      | " + squared(i) + "      | " + cubed(i) + "\n" );
+
         }
 
 
+        return grade;
     }
 
     public static int squared(int number) {
