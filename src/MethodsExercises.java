@@ -20,9 +20,11 @@ public class MethodsExercises {
 
 
 
-        int userInput = getInteger(1, 10);
+        int userInput = getInteger(1, 16);
 
         System.out.println("Valid input: " + userInput);
+
+        getFactorial(userInput);
 
     }
 
@@ -60,11 +62,32 @@ public class MethodsExercises {
 
         do {
 
-            System.out.print("Enter a number between 1 and 10: ");
+            System.out.print("Enter a number between " + min + " and " + max);
             input = sc.nextInt();
 
         } while(input < min || input > max);
 
         return input;
     }
+
+
+    public static long getFactorial(int number) {
+
+        String multiplyString = "! = 1 ";
+        int total = 1;
+
+        System.out.println("1"+ multiplyString + " = " + total);
+
+        for(int i = 2; i <= number; i++) {
+
+            total = total*i;
+            multiplyString += "x "+ i + " ";
+            System.out.println(i + multiplyString + " = " + total);
+
+        }
+
+        return (long) total;
+    }
+
+
 }
