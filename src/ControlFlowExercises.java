@@ -24,10 +24,10 @@ public class ControlFlowExercises {
 //            i++;
 //
 //        }
-
-        for(int i = 5; i<= 15; i++) {
-            System.out.print(i + " ");
-        }
+//
+//        for(int i = 5; i<= 15; i++) {
+//            System.out.print(i + " ");
+//        }
 
 //        Do While
 //
@@ -52,15 +52,42 @@ public class ControlFlowExercises {
 //        while (number < 1000000);
 
 
+//
+//        for(double number = 2; number < 1000000; number *= number) {
+//
+//            int output = (int) number;
+//            System.out.println(output);
+//
+//        }
+//
 
-        for(double number = 2; number < 1000000; number *= number) {
+//
+//        Fizzbuzz
+//
+//        One of the most common interview questions for entry-level programmers is the FizzBuzz test.
+//          Developed by Imran Ghory, the test is designed to test basic looping and conditional logic skills.
+//
+//        Write a program that prints the numbers from 1 to 100.
+//        For multiples of three print “Fizz” instead of the number
+//        For the multiples of five print “Buzz”.
+//        For numbers which are multiples of both three and five print “FizzBuzz”.
 
-            int output = (int) number;
-            System.out.println(output);
+
+        for(int i = 1; i <= 100; i++) {
+
+            //System.out.print(i);
+
+            String returnVal = "";
+
+
+           returnVal =  (i%5 != 0 && i%3 != 0) ? String.valueOf(i) : returnVal;
+            returnVal = (i%3 == 0) ? "Fizz" : returnVal;
+            returnVal = (i%5 == 0) ?  returnVal + "Buzz" : returnVal;
+
+
+            System.out.println(returnVal);
 
         }
-
-
 
 
     }
