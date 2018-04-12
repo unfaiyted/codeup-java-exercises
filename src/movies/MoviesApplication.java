@@ -1,16 +1,16 @@
 package movies;
 import util.Input;
 
+import java.util.Arrays;
+
 public class MoviesApplication {
 
     public static void main(String[] args) {
 
 
+        Movie[] movies = MoviesArray.findAll();
         Input input = new Input();
         boolean keepOpen = true;
-
-        // Setup movies list
-        MoviesArray.findAll();
 
         do {
 
@@ -20,9 +20,10 @@ public class MoviesApplication {
                     "2 - view movies in the animated category \n" +
                     "3 - view movies in the drama category \n" +
                     "4 - view movies in the horror category \n" +
-                    "5 - view movies in the scifi category \n\n");
+                    "5 - view movies in the scifi category \n" +
+                    "6 - add movie\n");
 
-            int userInt = input.getInt(0, 5);
+            int userInt = input.getInt(0, 6);
 
 
             switch (userInt) {
@@ -31,19 +32,59 @@ public class MoviesApplication {
                     keepOpen = false;
                     break;
                 case 1:
-                    Movie.displayMovies(MoviesArray.findAll(), "all");
+                    Movie.displayMovies(movies, "all");
                     break;
                 case 2:
-                    Movie.displayMovies(MoviesArray.findAll(), "animated");
+                    Movie.displayMovies(movies, "animated");
                     break;
                 case 3:
-                    Movie.displayMovies(MoviesArray.findAll(), "drama");
+                    Movie.displayMovies(movies, "drama");
                     break;
                 case 4:
-                    Movie.displayMovies(MoviesArray.findAll(), "horror");
+                    Movie.displayMovies(movies, "horror");
                     break;
                 case 5:
-                    Movie.displayMovies(MoviesArray.findAll(), "scifi");
+                    Movie.displayMovies(movies, "scifi");
+                    break;
+                case 6:
+
+                    String name = input.getString("Name of movie:");
+                    userInt = input.getInt("Pick:\n1 = animated, 2 = drama,\n3 = horror, 4 = scifi\n",1, 4);
+
+                    String category = "";
+
+                    switch (userInt) {
+                        case 1:
+                            category = "animated";
+                            break;
+                        case 2:
+                            category = "drama";
+                            break;
+                        case 3:
+                            category = "horror";
+                            break;
+                        case 4:
+                            category = "scifi";
+                            break;
+                    }
+
+                   // Movie[] newMovies = new Movie[movies.length + 1];
+
+                    movies = Arrays.copyOf(movies, movies.length+1);
+
+//                    int i = 0;
+//                    for(Movie movie : movies) {
+//                        newMovies[i] = movie;
+//                        i++;
+//                    }
+//                    i++;
+
+                    movies[movies.length-1] = new Movie(name, category);
+
+                   // Movie[] movies = newMovies;
+
+                    System.out.println("Movie added.");
+
                     break;
             }
 
