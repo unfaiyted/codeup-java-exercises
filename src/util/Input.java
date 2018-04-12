@@ -14,6 +14,25 @@ public class Input {
         return this.sc.nextLine();
     }
 
+    public String getString(String prompt) {
+        System.out.print(prompt);
+        return getString();
+    }
+
+    public boolean pressEnter() {
+        try
+        {
+            System.in.read();
+        }
+        catch(Exception e)
+        {}
+        return true;
+    }
+    public boolean pressEnter(String prompt) {
+        System.out.print(prompt);
+        return pressEnter();
+    }
+
     public boolean yesNo() {
         String input = this.sc.next();
         return (input.equalsIgnoreCase("y") || input.equalsIgnoreCase("yes"));
