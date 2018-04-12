@@ -10,16 +10,21 @@ public class Input {
     }
 
 
-    String getString() {
+    public String getString() {
         return this.sc.nextLine();
     }
 
-    boolean yesNo() {
-        String input = this.sc.nextLine();
+    public boolean yesNo() {
+        String input = this.sc.next();
         return (input.equalsIgnoreCase("y") || input.equalsIgnoreCase("yes"));
     }
 
-    int getInt(int min, int max) {
+    public boolean yesNo(String prompt) {
+        System.out.print(prompt);
+        return yesNo();
+    }
+
+    public int getInt(int min, int max) {
         System.out.print("Please input a number between " + min + " and "+ max + ": ");
 
         int userInt = this.getInt();
@@ -28,8 +33,18 @@ public class Input {
 
     }
 
+    public int getInt(String prompt, int min, int max) {
+        System.out.print(prompt);
+        return getInt(min, max);
+    }
+
+    public int getInt(String prompt) {
+        System.out.print(prompt);
+        return getInt();
+    }
+
     //Validate int input
-    int getInt() {
+    public int getInt() {
         try {
             String inputInt  = this.sc.next();
             return Integer.valueOf(inputInt);
@@ -40,7 +55,7 @@ public class Input {
     }
 
 
-    double getDouble(double min, double max) {
+    public double getDouble(double min, double max) {
         System.out.print("Please input a decimal number between " + min + " and "+ max + ": ");
 
         double userDouble = this.getDouble();
@@ -48,7 +63,18 @@ public class Input {
         return (userDouble > max || userDouble < min) ? getDouble(min, max) : userDouble;
     }
 
-    double getDouble() {
+    public double getDouble(String prompt) {
+        System.out.print(prompt);
+        return getDouble();
+    }
+
+    public double getDouble(String prompt, double min, double max) {
+        System.out.print(prompt);
+        return getDouble(min, max);
+    }
+
+
+    public double getDouble() {
         try {
             String input = this.sc.next();
             return Double.valueOf(input);
