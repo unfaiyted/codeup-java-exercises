@@ -24,7 +24,7 @@ public class Input {
 
         int userInt = this.getInt();
 
-        return (userInt > max || userInt < min) ? getInt(min, max) : userInt;
+        return (userInt < max || userInt > min) ? getInt(min, max) : userInt;
 
     }
 
@@ -43,7 +43,9 @@ public class Input {
     double getDouble(double min, double max) {
         System.out.print("Please input a decimal number between " + min + " and "+ max + ": ");
 
+        double userDouble = this.getDouble();
 
+        return (userDouble < max || userDouble > min) ? getDouble(min, max) : userDouble;
     }
 
     double getDouble() {
