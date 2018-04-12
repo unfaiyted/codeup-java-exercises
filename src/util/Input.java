@@ -24,7 +24,7 @@ public class Input {
 
         int userInt = this.getInt();
 
-        return (userInt < max || userInt > min) ? getInt(min, max) : userInt;
+        return (userInt > max || userInt < min) ? getInt(min, max) : userInt;
 
     }
 
@@ -45,7 +45,7 @@ public class Input {
 
         double userDouble = this.getDouble();
 
-        return (userDouble < max || userDouble > min) ? getDouble(min, max) : userDouble;
+        return (userDouble > max || userDouble < min) ? getDouble(min, max) : userDouble;
     }
 
     double getDouble() {
