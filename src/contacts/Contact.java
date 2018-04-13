@@ -56,4 +56,8 @@ public class Contact {
         this.email = email;
     }
 
+    public String toString() {
+        return this.firstName +","+this.lastName +","+this.phoneNumber +","+this.email;
+    }
+
 }

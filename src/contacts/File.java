@@ -2,6 +2,7 @@ package contacts;
 
 import java.io.IOException;
 import java.nio.file.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class File {
@@ -56,6 +57,17 @@ public class File {
             }
         }
 
+        return true;
+    }
+
+    public boolean overwrite(List<String> data) {
+
+        try {
+            Files.write(dataFile, data);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
         return true;
     }
 
