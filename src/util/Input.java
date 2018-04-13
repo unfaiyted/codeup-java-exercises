@@ -34,7 +34,7 @@ public class Input {
     }
 
     public boolean yesNo() {
-        String input = this.sc.next();
+        String input = this.sc.nextLine();
         return (input.equalsIgnoreCase("y") || input.equalsIgnoreCase("yes"));
     }
 
