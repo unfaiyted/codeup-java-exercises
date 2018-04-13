@@ -33,4 +33,11 @@ public class Student {
         return (double) (sum / this.grade.size());
     }
 
+    public void displayAllGrades() {
+        for(int item: grade) {
+            System.out.print(item + " | ");
+        }
+
+    }
+
 }

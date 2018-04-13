@@ -58,29 +58,34 @@ public class GradesApplication {
         do {
 
             System.out.print("\n" +
-                    "What student would you like to see more information on?\n");
+                    "What student would you like to see more information on? \n(type: \"all\" for everyone)\n");
 
             System.out.print("> ");
             userInput = input.getString();
 
 
+
+
             if (students.containsKey(userInput)) {
                 System.out.print("Name: " + students.get(userInput).getName() + " - Gihub Username: " + userInput + "\n" +
-                        "Current Average: " + students.get(userInput).getGradeAverage());
-            } else {
+                        "Current Average: " + students.get(userInput).getGradeAverage() +
+                        "\nAll Grades: ");
+                students.get(userInput).displayAllGrades();
+
+
+            } else if (userInput.contains("all")) {
+                students.forEach((k,v) -> {
+                    System.out.println("\n" +k +":");
+                    v.displayAllGrades();
+                });
+            }
+            else {
                 System.out.print("\n" +
                         "Sorry, no student found with the gihub username of \"" + userInput + "\" \n");
                 appContinue = (input.yesNo("Would you like to see another student? (y/no) \n> "));
             }
 
 
-//        switch (userInput) {
-//
-//            case "exit":
-//                appContinue = false;
-//                break;
-//
-//            }
         }
 
         while (appContinue);
