@@ -11,16 +11,23 @@ public class InputTest {
         Input input = new Input();
 
 
+        // Binary Test
+        // Integer Testing
+        System.out.print("Input and a binary number: ");
+        int userInt = input.getBinary();
+        System.out.println("Int Input: " + userInt);
+        userInt = input.getBinary("Prompt: Binary Number: ");
+        System.out.println("Int Input: " + userInt);
+
         // Yes No Testing
         System.out.println("Input y/yes for true: ");
         boolean userYes = input.yesNo();
         System.out.println("Int Input: " + userYes);
 
 
-
         // Integer Testing
         System.out.println("Input and integer: ");
-        int userInt = input.getInt();
+        userInt = input.getInt();
         System.out.println("Int Input: " + userInt);
 
         System.out.println("Input and integer between ");

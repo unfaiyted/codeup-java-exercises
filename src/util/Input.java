@@ -92,7 +92,6 @@ public class Input {
         return getDouble(min, max);
     }
 
-
     public double getDouble() {
         try {
             String input = this.sc.next();
@@ -102,6 +101,34 @@ public class Input {
             return getDouble();
         }
 
+    }
+
+    public int getBinary(String prompt) {
+        System.out.print(prompt);
+        return getBinary();
+    }
+
+    public int getBinary() {
+        try {
+            String input = this.sc.next();
+            return Integer.valueOf(input,2);
+        } catch(NumberFormatException e) {
+            return getBinary();
+        }
+    }
+
+    public int getHex(String prompt) {
+        System.out.print(prompt);
+        return getHex();
+    }
+
+    public int getHex() {
+        try {
+            String input = this.sc.next();
+            return Integer.valueOf(input,16);
+        } catch(NumberFormatException e) {
+            return getHex();
+        }
     }
 
 
