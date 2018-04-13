@@ -54,7 +54,9 @@ public class Input {
 
     public int getInt(String prompt, int min, int max) {
         System.out.print(prompt);
-        return getInt(min, max);
+        int userInt = this.getInt();
+
+        return (userInt > max || userInt < min) ? getInt(prompt, min, max) : userInt;
     }
 
     public int getInt(String prompt) {

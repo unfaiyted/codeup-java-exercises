@@ -58,17 +58,27 @@ public class ContactsManager {
     /**
     * Saved the current list of contacts to the file. Replaces
     * */
-    public ArrayList<String> list() {
+    public ArrayList<Contact> list() {
+
+        ArrayList<Contact> contactList = new ArrayList<>();
+
+        for(Map.Entry<Integer, Contact> contact: contacts.entrySet()) {
+            Contact c = contact.getValue();
+            contactList.add(c);
+
+        }
+
+        return contactList;
+
+    }
+
+    public ArrayList<String> listString() {
 
         ArrayList<String> contactList = new ArrayList<>();
 
         for(Map.Entry<Integer, Contact> contact: contacts.entrySet()) {
             Contact c = contact.getValue();
-
-//         System.out.println(c.toString());
-
             contactList.add(c.toString());
-
 
         }
 
