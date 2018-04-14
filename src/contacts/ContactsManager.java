@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public class ContactsManager {
-    private HashMap<Integer, Contact> contacts;
+    private static HashMap<Integer, Contact> contacts;
     private static Integer lastId = 0;
     private static Integer total = 0;
 
@@ -53,6 +53,30 @@ public class ContactsManager {
     public Contact get(Integer id) {
         Contact contact = this.contacts.get(id);
         return contact;
+    }
+
+    public ArrayList<Contact> search(String query) {
+
+        ArrayList<Contact> contactList = new ArrayList<>();
+
+        for(Contact c: list()) {
+
+            if(c.getFullName().contains(query)) {
+                contactList.add(c);
+            }
+        }
+        return contactList;
+    }
+
+
+    public  static Integer getId(Contact value) {
+
+        for(Map.Entry<Integer, Contact> contact: contacts.entrySet()) {
+            if (contact.getValue() == value)
+                    return contact.getKey();
+        }
+
+        return null;
     }
 
     /**

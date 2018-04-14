@@ -41,7 +41,7 @@ public class ContactsApp {
         switch (selected) {
             case 1:
                 System.out.println("You choose view.");
-                view();
+                view(contacts.list());
                 break;
             case 2:
                 System.out.println("You choose add.");
@@ -64,18 +64,22 @@ public class ContactsApp {
 
     }
 
-    private static void view() {
+
+
+    private static void view(ArrayList<Contact> list) {
 
         System.out.println(
-                String.format("%1$20s","NAME")  + " | " +
+                String.format("%1$5s","ID")  + " | " +
+                        String.format("%1$15s","NAME")  + " | " +
                         String.format("%1$15s","PHONE")  + " | " +
                         String.format("%1$25s","EMAIL")  + " | "
         );
 
-        for(Contact contact : contacts.list()) {
+        for(Contact contact : list) {
 
             System.out.println(
-            String.format("%1$20s",contact.getFullName()) + " | " +
+                    String.format("%1$5s",ContactsManager.getId(contact))  + " | " +
+            String.format("%1$15s",contact.getFullName()) + " | " +
             String.format("%1$15s", contact.getPhoneNumber())  + " | " +
             String.format("%1$25s",contact.getEmail()) + " |");
 
@@ -85,10 +89,23 @@ public class ContactsApp {
 
     }
 
-    private static void delete() {
+    private static boolean delete() {
 
+        boolean known = input.yesNo("Do you know the ID you wish to delete (yes/no): ");
 
+        if (known) {
+            Integer userInt = input.getInt("What contact ID would you like to delete? ");
+            return true;
+        } else {
+             known = input.yesNo("Would you like to search to find the ID? (yes/no): ");
 
+            if (known) {
+                search();
+                return delete();
+            }
+        }
+
+        return false;
     }
 
     private static void add() {
@@ -113,12 +130,14 @@ public class ContactsApp {
 
     private static void search() {
 
-        Integer userInt = input.getInt("What contact ID would you like to delete? ");
+        String query = input.getString("Search: ");
 
+        view(contacts.search(query));
 
+        boolean repeat = input.yesNo("Would you like to search again? (yes/no): ");
 
+        if (repeat) { search(); };
     }
-
 
 }
 

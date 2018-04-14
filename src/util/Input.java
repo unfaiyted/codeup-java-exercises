@@ -6,7 +6,7 @@ public class Input {
     private Scanner sc;
 
     public Input() {
-        this.sc = new Scanner(System.in);
+        this.sc = new Scanner(System.in).useDelimiter("\n");
     }
 
 
@@ -67,7 +67,7 @@ public class Input {
     //Validate int input
     public int getInt() {
         try {
-            String inputInt  = this.sc.next();
+            String inputInt  = this.sc.nextLine();
             return Integer.valueOf(inputInt);
         } catch(NumberFormatException e) {
             System.out.println("Try again. Fail. ");
