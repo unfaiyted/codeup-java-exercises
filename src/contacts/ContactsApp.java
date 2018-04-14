@@ -87,6 +87,8 @@ public class ContactsApp {
 
     private static void delete() {
 
+
+
     }
 
     private static void add() {
@@ -110,6 +112,10 @@ public class ContactsApp {
     }
 
     private static void search() {
+
+        Integer userInt = input.getInt("What contact ID would you like to delete? ");
+
+
 
     }
 
